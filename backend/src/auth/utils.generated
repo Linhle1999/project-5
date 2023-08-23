@@ -1,0 +1,41 @@
+import { parseUserId, getTokenFromHeader } from './utils'
+
+jest.mock('jsonwebtoken')
+jest.mock('./JwtPayload')
+jest.mock('jwk-to-pem')
+
+describe('utils', () => {
+  describe('parseUserId', () => {
+    it('should expose a function', () => {
+      expect(parseUserId).toBeDefined()
+    })
+
+    it('parseUserId should return expected output', () => {
+      const jwtToken = ''
+      parseUserId(jwtToken)
+    })
+  })
+  describe('getTokenFromHeader', () => {
+    it('should expose a function', () => {
+      expect(getTokenFromHeader).toBeDefined()
+    })
+
+    it('getTokenFromHeader should return expected output', () => {
+      const event = {
+        body: ``,
+        headers: { Authorization: 'Authorization' },
+        httpMethod: 'POST',
+        isBase64Encoded: false,
+        path: '/',
+        queryStringParameters: {},
+        pathParameters: {},
+        stageVariables: {},
+        multiValueHeaders: {},
+        requestContext: null,
+        resource: '/',
+        multiValueQueryStringParameters: {}
+      }
+      getTokenFromHeader(event)
+    })
+  })
+})

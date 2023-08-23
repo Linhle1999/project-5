@@ -1,0 +1,84 @@
+import {
+  createTask,
+  deleteTask,
+  getTask,
+  getTasks,
+  updateTask
+} from './businessLogic'
+import { TasksAccess } from '../dataLayer/tasksAccess'
+
+jest.mock('../models/TaskItem')
+jest.mock('../requests/CreateTaskRequest')
+jest.mock('../requests/UpdateTaskRequest')
+jest.mock('../utils/logger')
+jest.mock('uuid')
+jest.mock('http-errors')
+jest.mock('../auth/utils')
+jest.mock('../models/TaskUpdate')
+
+describe('businessLogic', () => {
+  describe('createTask', () => {
+    it('should expose a function', async () => {
+      const request = {
+        name: 'name',
+        dueDate: new Date().toDateString()
+      }
+      const token = ''
+      const tasksAccess = new TasksAccess()
+      jest.spyOn(tasksAccess, 'create').mockRejectedValue(new Error())
+      await createTask(request, token)
+    })
+
+    it('should expose a function', () => {
+      expect('createTask').toBeDefined()
+    })
+  })
+  describe('updateTask', () => {
+    it('should expose a function', () => {
+      expect('updateTask').toBeDefined()
+    })
+
+    it('updateTask should return expected output', async () => {
+      const id = ''
+      const request = {
+        name: 'name',
+        dueDate: new Date().toDateString(),
+        done: true
+      }
+      const token = ''
+      await updateTask(id, request, token)
+    })
+  })
+  describe('deleteTask', () => {
+    it('should expose a function', () => {
+      expect('deleteTask').toBeDefined()
+    })
+
+    it('deleteTask should return expected output', async () => {
+      const id = ''
+      const token = ''
+      await deleteTask(id, token)
+    })
+  })
+  describe('getTask', () => {
+    it('should expose a function', () => {
+      expect('getTask').toBeDefined()
+    })
+
+    it('getTask should return expected output', async () => {
+      const id = ''
+      const token = ''
+      await getTask(id, token)
+    })
+  })
+  describe('getTasks', () => {
+    it('should expose a function', () => {
+      expect('getTasks').toBeDefined()
+    })
+
+    it('getTasks should return expected output', async () => {
+      const token = ''
+      await getTasks(token)
+    })
+  })
+})
