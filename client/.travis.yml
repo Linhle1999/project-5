@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - 'v14.16.0'
+install:
+- npm install
+script:
+- CI=false npm run build
+deploy:
+  provider: s3
+  skip_cleanup: true
+  access_key_id: $AWS_ACCESS_ID
+  secret_access_key: $AWS_SECRET_ID
+  bucket: 'project-5-fe'
+  local_dir: build
+  region: us-east-1
+  on:
+    branch: master
