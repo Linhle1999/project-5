@@ -5,9 +5,8 @@ install:
 - npm install
 script:
 - with:
-    working-directory: client
+    working-directory: .\client\
   - CI=false npm run build
-
 deploy:
   provider: s3
   skip_cleanup: true
