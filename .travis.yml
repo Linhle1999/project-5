@@ -4,7 +4,7 @@ node_js:
 install:
 - npm install
 script:
-- CI=false npm run build
+- CI=true cd client && npm run build
 deploy:
   provider: s3
   skip_cleanup: true
