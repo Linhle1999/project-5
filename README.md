@@ -36,6 +36,6 @@
   serverless deploy
 ```
 
-#Demo video:
+# Demo app:
 ![Project5](https://github.com/Linhle1999/project-5/assets/42709781/581833b8-e1e0-4006-af8b-2ff11a06d564)
 
