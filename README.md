@@ -25,8 +25,17 @@
   Travis CI documentation on deploying to S3: https://docs.travis-ci.com/user/deployment/s3/<br/>
   Amazon S3 documentation: https://docs.aws.amazon.com/AmazonS3/latest/userguide/
 
-# To deploy in cmd:
+# To deploy FE in cmd:
   ```
   npm run build && aws s3 sync build/ s3://YOUR_BUCKET_NAME
 ```
   Replace YOUR_BUCKET_NAME with your actual value.
+
+# To deploy BE in cmd:
+  ```
+  serverless deploy
+```
+
+#Demo video:
+![Project5](https://github.com/Linhle1999/project-5/assets/42709781/581833b8-e1e0-4006-af8b-2ff11a06d564)
+
